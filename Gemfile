@@ -40,9 +40,8 @@ gem 'mercadopago', '~> 2.2.1'
 gem 'rest-client'
 gem 'will_paginate', '~> 3.3'
 gem 'bootstrap-will_paginate', '~> 1.0'
-
-
 gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -52,6 +51,13 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # RSpec for testing
+  gem 'rspec-rails', '~> 6.0'
+
+  #factory
+  gem 'factory_bot_rails'
+
 end
 
 group :development do
