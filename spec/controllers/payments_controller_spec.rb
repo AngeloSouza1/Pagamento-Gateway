@@ -30,8 +30,12 @@ RSpec.describe PaymentsController, type: :controller do
   describe 'POST #create' do
     context 'with valid attributes' do
       before do
-        allow_any_instance_of(MercadoPagoService).to receive(:create_payment).and_return(double('Response', code: 201, parsed_response: { 'id' => '123', 'status' => 'approved' }))
-        allow_any_instance_of(MercadoPagoService).to receive(:handle_response).and_return({ success: true, status: 'approved', transaction_id: '123', boleto_link: nil, ticket_url: nil })
+        allow_any_instance_of(MercadoPagoService).to receive(:create_payment).and_return(
+          double('Response', code: 201, parsed_response: { 'id' => '123', 'status' => 'approved' })
+        )
+        allow_any_instance_of(MercadoPagoService).to receive(:handle_response).and_return(
+          { success: true, status: 'approved', transaction_id: '123', boleto_link: nil, ticket_url: nil }
+        )
       end
 
       it 'creates a new payment' do
@@ -42,7 +46,12 @@ RSpec.describe PaymentsController, type: :controller do
 
       it 'redirects to the success page' do
         post :create, params: { payment: valid_attributes }
-        expect(response).to redirect_to(success_payments_path)
+        expect(response).to redirect_to(success_payments_path(
+          name: 'Angelo Souza',
+          amount: 100.0,
+          transaction_id: '123',
+          payment_method: 'pix'
+        ))
       end
     end
 
@@ -61,8 +70,12 @@ RSpec.describe PaymentsController, type: :controller do
 
     context 'when MercadoPagoService returns an error' do
       before do
-        allow_any_instance_of(MercadoPagoService).to receive(:create_payment).and_return(double('Response', code: 400, parsed_response: { 'message' => 'Bad Request' }))
-        allow_any_instance_of(MercadoPagoService).to receive(:handle_response).and_return({ success: false, error: 'Bad Request' })
+        allow_any_instance_of(MercadoPagoService).to receive(:create_payment).and_return(
+          double('Response', code: 400, parsed_response: { 'message' => 'Bad Request' })
+        )
+        allow_any_instance_of(MercadoPagoService).to receive(:handle_response).and_return(
+          { success: false, error: 'Bad Request' }
+        )
       end
 
       it 'does not create a new payment' do
