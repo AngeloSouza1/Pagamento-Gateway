@@ -1,13 +1,13 @@
 # 💳 Pagamento Gateway
 
 
-<div align="justify"> O **Pagamento Gateway** é uma aplicação web desenvolvida com **Ruby on Rails** e **Bootstrap**. Este sistema foi projetado para gerenciar e processar pagamentos de forma eficiente e segura, oferecendo uma experiência amigável para usuários finais e administradores. O projeto inclui autenticação para usuários e administradores, suporte a múltiplos métodos de pagamento (PIX, Boleto e Cartão de Crédito), e integração com o Mercado Pago para processamento de transações. </div>
+<div align="justify"> O Pagamento Gateway é uma aplicação web desenvolvida com Ruby on Rails e Bootstrap. Este sistema foi projetado para gerenciar e processar pagamentos de forma eficiente e segura, oferecendo uma experiência amigável para usuários finais e administradores. O projeto inclui autenticação para usuários e administradores, suporte a múltiplos métodos de pagamento (PIX, Boleto e Cartão de Crédito), e integração com o Mercado Pago para processamento de transações. </div>
 
 ### 💻 Sobre o projeto
 
 ---
 
-<div align="justify"> O **Pagamento Gateway** permite que usuários realizem pagamentos por meio de diferentes métodos, enquanto administradores podem visualizar e gerenciar os pagamentos realizados. A interface intuitiva facilita a navegação e proporciona uma experiência prática e eficiente para todos os envolvidos. </div>
+<div align="justify"> O Pagamento Gateway permite que usuários realizem pagamentos por meio de diferentes métodos, enquanto administradores podem visualizar e gerenciar os pagamentos realizados. A interface intuitiva facilita a navegação e proporciona uma experiência prática e eficiente para todos os envolvidos. </div>
 
 
 #### 👁️‍🗨️ Funcionalidades Principais
