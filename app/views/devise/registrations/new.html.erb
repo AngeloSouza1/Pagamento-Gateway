@@ -1,0 +1,50 @@
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <div class="card shadow-lg w-50">
+    <div class="card-header bg-primary text-white text-center">
+      <h2 class="h4 m-0">Cadastro</h2>
+    </div>
+    <div class="card-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "needs-validation" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <!-- Campo de E-mail -->
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" %>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Digite seu e-mail" %>
+          </div>
+        </div>
+
+        <!-- Campo de Senha -->
+        <div class="mb-3">
+          <%= f.label :password, class: "form-label" %>
+          <% if @minimum_password_length %>
+            <small class="text-muted">(<%= @minimum_password_length %> caracteres mínimo)</small>
+          <% end %>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Digite sua senha" %>
+          </div>
+        </div>
+
+        <!-- Campo de Confirmação de Senha -->
+        <div class="mb-3">
+          <%= f.label :password_confirmation, "Confirme a Senha", class: "form-label" %>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirme sua senha" %>
+          </div>
+        </div>
+
+        <!-- Botão de Cadastro -->
+        <div class="d-grid">
+          <%= f.submit "Cadastrar", class: "btn btn-primary btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-footer text-center">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
