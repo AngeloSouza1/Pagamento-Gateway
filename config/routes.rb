@@ -1,9 +1,10 @@
+
 Rails.application.routes.draw do
   # Rotas do Devise para usuários normais
   devise_for :users
 
   # Rotas do Devise para administradores
-  devise_for :admins
+  devise_for :admins, path: 'admins'
 
   # Área de administração para visualização de pagamentos
   namespace :admin do
@@ -32,6 +33,17 @@ Rails.application.routes.draw do
 
     unauthenticated do
       root to: "devise/sessions#new", as: :unauthenticated_root
+    end
+  end
+
+  # Rota personalizada para o painel administrativo
+  devise_scope :admin do
+    authenticated :admin do
+      root to: "admin/payments#index", as: :admin_authenticated_root
+    end
+
+    unauthenticated do
+      root to: "devise/sessions#new", as: :unauthenticated_admin_root
     end
   end
 end
